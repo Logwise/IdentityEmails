@@ -1,0 +1,21 @@
+﻿@page
+@model EmailsModel
+@{
+    ViewData["Title"] = "Manage your emails";
+    ViewData["ActivePage"] = ManageNavPages.Emails;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<h4>Registered emails</h4>
+<table class="table">
+    <tbody>
+        @foreach (var emailInfo in Model.Emails)
+        {
+            <tr>
+                <td>@emailInfo.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

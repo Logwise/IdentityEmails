@@ -1,0 +1,8 @@
+﻿@model IEnumerable<ExternalProviderButtonModel>
+
+<div class="external-providers">
+    @foreach (var providerModel in Model)
+    {
+        <partial name="_ExternalProviderButton" model="providerModel" />
+    }
+</div>

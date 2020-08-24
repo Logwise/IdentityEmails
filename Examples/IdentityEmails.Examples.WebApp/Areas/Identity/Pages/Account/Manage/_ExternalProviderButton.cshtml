@@ -1,0 +1,5 @@
+﻿@model ExternalProviderButtonModel
+
+<a href="@Model.Url" class="btn btn-primary btn-raised btn-external-provider btn-external-provider-@Model.AuthenticationScheme">
+    @(Model.TextPrefix ?? "Sign in with") @Model.ProviderDisplayName
+</a>

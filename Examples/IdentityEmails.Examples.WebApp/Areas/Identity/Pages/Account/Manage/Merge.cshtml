@@ -1,0 +1,45 @@
+﻿@page "{handler?}"
+@using Microsoft.AspNetCore.Identity;
+@model MergeModel
+@{
+    ViewData["Title"] = "Merge";
+    ViewData["ActivePage"] = ManageNavPages.Merge;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<h4>Merge accounts</h4>
+<p>
+    You are currently logged in with @User.Claims.FindEmail() as primary account.
+</p>
+<p>
+    To continue authenticate the merging account that you want to merge into your primary account below.
+</p>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<div class="row">
+    <form asp-page="Merge" class="col-md-6">
+
+        <fieldset>
+            <div class="form-group">
+                <label asp-for="LoginModel.Username">Email</label>
+                <input asp-for="LoginModel.Username" class="form-control" placeholder="Email">
+                <span asp-validation-for="LoginModel.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoginModel.Password"></label>
+                <input asp-for="LoginModel.Password" type="password" class="form-control" placeholder="Password" autocomplete="off">
+                <span asp-validation-for="LoginModel.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group login-button">
+                <button class="btn btn-primary btn-raised pull-right" name="button" value="login">Continue with local account</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <div class="col-md-6">
+        <label>&nbsp;</label>
+        <partial name="_ExternalProviders" model="Model.ExternalProvidersModel" />
+    </div>
+</div>

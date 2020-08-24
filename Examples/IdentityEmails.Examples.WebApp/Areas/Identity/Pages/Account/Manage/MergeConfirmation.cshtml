@@ -1,0 +1,11 @@
+﻿@page
+@{
+    ViewData["Title"] = "Merged account confirmation";
+    ViewData["ActivePage"] = ManageNavPages.Merge;
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<p>
+    Your account has been successfully merged. Manage your logins here: <a asp-area="Identity" asp-page="/Account/Manage/ExternalLogins">External Logins</a>.
+</p>
