@@ -25,7 +25,6 @@ namespace Microsoft.AspNetCore.Identity.EntityFrameworkCore
 
             builder.Entity<TUser>()
                 .HasMany<TEmail>()
-                //.HasMany(e => e.Emails)
                 .WithOne()
                 .HasForeignKey(e => e.UserId)
                 .IsRequired()
@@ -34,7 +33,6 @@ namespace Microsoft.AspNetCore.Identity.EntityFrameworkCore
             builder.Entity<TEmail>()
                 .ToTable("AspNetUserEmails")
                 .HasOne(e => e.UserLogin)
-                //.HasOne<IdentityUserLogin<TKey>>()
                 .WithOne()
                 .HasForeignKey<TEmail>(e => new { e.LoginProvider, e.LoginProviderKey });
 
